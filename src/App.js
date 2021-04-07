@@ -20,7 +20,7 @@ const App = () => {
   }, [term]);
 
   return (
-    <div className="container mx-auto">
+    <div style={styles}>
       <ImageSearch searchText={(text) => setTerm(text)} />
       {!isLoading && images.length === 0 && (
         <h1 className="text-5xl text-center mx-auto mt-32">No Images Found</h1>
@@ -36,6 +36,12 @@ const App = () => {
       )}
     </div>
   );
+};
+
+const styles = {
+  margin: "0 auto",
+  maxWidth: "100%",
+  width: "75%",
 };
 
 export default App;
