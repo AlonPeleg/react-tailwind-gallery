@@ -1,13 +1,30 @@
 import ImageDetails from "./ImageDetails";
+import imgStyle from "./ImageCard.module.css";
 
 const ImageCard = ({ image }) => {
   const tags = image.tags.split(",");
-const onClick=()=>{
-  window.open(image.pageURL)
-}
+
+  const onClick = (action) => {
+    if (action === 1) {
+      window.open(image.pageURL);
+    } else {
+      window.open(image.largeImageURL);
+    }
+  };
+
   return (
-    <div onClick={onClick} className="max-w-sm rounded overflow-hidden shadow-lg">
-      <img src={image.webformatURL} alt="" className="w-full" />
+    <div
+      onClick={() => onClick(1)}
+      className="max-w-sm rounded overflow-hidden shadow-md hover:bg-gray-100 hover:shadow-xl"
+    >
+      <div className={imgStyle.imgContainer}>
+        <img
+          onClick={() => onClick(2)}
+          src={image.webformatURL}
+          alt=""
+          className={imgStyle.imgFocus}
+        />
+      </div>
       <div className="px-6 py-4">
         <div className="font-bold text-purple-500 text-xl mb-2">
           Photo by {image.user}

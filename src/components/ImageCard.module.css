@@ -1,0 +1,18 @@
+.imgContainer {
+  display: block;
+  overflow: hidden;
+}
+.imgFocus {
+  transition-duration: 0.25s;
+  transform-origin: 0 0;
+}
+.imgFocus img {
+  max-width: 200px;
+  max-height: 100px;
+  position: absolute;
+}
+
+.imgFocus:hover {
+  transform: scale(1);
+  padding-left: 5px;
+}
